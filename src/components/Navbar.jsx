@@ -1,6 +1,6 @@
 function Navbar() {
     return (
-        <nav className="bg-gray-800 p-4 fixed w-full top-0">
+        <nav className="bg-transparent border-b border-white/10 p-4 fixed w-full top-0">
             <div className="container mx-auto flex justify-between items-center">
                 <a href="/" className="text-white text-lg font-bold">My Portfolio</a>
                 <ul className="flex space-x-4">
