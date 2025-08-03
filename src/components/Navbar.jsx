@@ -1,16 +1,57 @@
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+
+
+
 function Navbar() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("#home");
+
+    const navItems = [
+        { name: "Home", href: "#home" },
+        { name: "About", href: "#about" },
+        { name: "Projects", href: "#projects" },
+        { name: "Skills", href: "#skills" },
+        { name: "Contact", href: "#contact" }
+    ]
+
+
     return (
-        <nav className="bg-transparent border-b border-white/10 p-4 fixed w-full top-0">
-            <div className="container mx-auto flex justify-between items-center">
-                <a href="/" className="text-white text-lg font-bold">My Portfolio</a>
-                <ul className="flex space-x-4">
-                    <li><a href="#home" className="text-white hover:text-gray-300">Home</a></li>
-                    <li><a href="#about" className="text-white hover:text-gray-300">About</a></li>
-                    <li><a href="#projects" className="text-white hover:text-gray-300">Projects</a></li>
-                    <li><a href="#skills" className="text-white hover:text-gray-300">Skills</a></li>
-                    <li><a href="#contact" className="text-white hover:text-gray-300">Contact</a></li>
+        <nav className="bg-gradient-to-br from-indigo-950 via-pink-950 to-indigo-950 px-6 py-4 fixed w-full top-0 border-b border-white/10">
+            <div className="max-w-7xl mx-auto flex justify-between items-center">
+                <a href="#home" className="text-3xl bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-pulse font-bold">Dora Appiah</a>
+                <ul className="hidden md:flex space-x-8">
+                    {navItems.map((item) => (
+                        <li key={item.name}>
+                            <a
+                                onClick={() => setActiveSection(item.href)}
+                                href={item.href}
+                                className={`transition-all duration-300 hover:scale-110 font-medium capitalize text-lg ${activeSection === item.href
+                                    ? 'text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text'
+                                    : 'text-gray-300 hover:text-white hover:scale-105'
+                                    }`}
+                            >{item.name}
+                            </a>
+                        </li>
+                    ))}
                 </ul>
+                <div className="md:hidden">
+                    <button className="" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                        {isMenuOpen ? <X /> : <Menu />}
+                    </button>
+                </div>
             </div>
+
+            {isMenuOpen && (
+                <div className="md:hidden bg-black/95 backdrop-blur-lg">
+                    <ul className="px-6 py-4 space-y-4">
+                        {navItems.map((item) => (
+                            <li key={item.name}><a className="text-lg font-medium text-gray-300 hover:text-purple-400" href={item.href}>{item.name}</a></li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
         </nav>
     );
 }
