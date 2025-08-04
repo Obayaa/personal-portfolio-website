@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-gradient: #303182;
+  /* --color-bg-gradient: #303182; */
   /* --color-secondary: #efe10f;
   --color-tertiary: #eeeeee;
   --color-purple: #e5ecf6;
