@@ -23,11 +23,11 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen">
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-blue-900/20"></div>
+    <div className="bg-black/80 text-white min-h-screen">
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-pink-900 to-blue-900"></div>
         <div
-          className="absolute w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse"
+          className="absolute w-96 h-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl animate-pulse"
           style={{
             left: mousePosition.x - 192,
             top: mousePosition.y - 192,
@@ -38,7 +38,7 @@ function App() {
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-pink-500/5 to-rose-500/5 rounded-full blur-3xl animate-pulse"></div>
       </div>
       <Navbar />
-      {/* <div className="flex-grow"> */}
+
       <section className="" id="home">
         <Home />
       </section>
@@ -54,7 +54,6 @@ function App() {
       <section className="" id="contact">
         <Contact />
       </section>
-      {/* </div> */}
       <Footer />
     </div>
   );
